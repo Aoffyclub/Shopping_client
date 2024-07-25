@@ -6,7 +6,7 @@ const NewCollection = () => {
     const [newcollection, setNewcollection] = useState([])
 
     const getNewcollection = () => {
-        fetch("http://localhost:3000/newcollection")
+        fetch(import.meta.env.VITE_BASE_URL+"newcollection")
             .then((response) => response.json())
             .then((data) => {
                 setNewcollection(data.reverse())

@@ -8,7 +8,7 @@ const Popular = () => {
   const [popular, setPopular] = useState([])
 
   const getPopular = () => {
-    fetch("http://localhost:3000/popularproducts")
+    fetch(import.meta.env.VITE_BASE_URL+ "popularproducts")
       .then((response) => response.json())
       .then((data) => {
         setPopular(data.reverse())

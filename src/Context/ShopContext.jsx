@@ -21,7 +21,7 @@ const ShopContextProvider = ({ children }) => {
   const [navBar, setNavBar] = useState(getSelectNav);
 
   const getAllProducts = () => {
-    fetch("http://localhost:3000/allproducts")
+    fetch(import.meta.env.VITE_BASE_URL + "allproducts")
       .then((response) => response.json())
       .then((data) => {
         setAll_products(data.reverse());
@@ -30,7 +30,7 @@ const ShopContextProvider = ({ children }) => {
   };
 
   const getCart = () => {
-    fetch("http://localhost:3000/getcart", {
+    fetch(import.meta.env.VITE_BASE_URL + "getcart", {
       method: "GET",
       headers: {
         Accept: "application/json",
