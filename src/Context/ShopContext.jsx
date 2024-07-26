@@ -21,7 +21,7 @@ const ShopContextProvider = ({ children }) => {
   const [navBar, setNavBar] = useState(getSelectNav);
 
   const getAllProducts = () => {
-    fetch(import.meta.env.VITE_BASE_URL + "allproducts")
+    fetch(import.meta.env.VITE_API_URL + "allproducts")
       .then((response) => response.json())
       .then((data) => {
         setAll_products(data.reverse());
@@ -30,7 +30,7 @@ const ShopContextProvider = ({ children }) => {
   };
 
   const getCart = () => {
-    fetch(import.meta.env.VITE_BASE_URL + "getcart", {
+    fetch(import.meta.env.VITE_API_URL + "getcart", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -72,7 +72,7 @@ const ShopContextProvider = ({ children }) => {
     setCartItems({ ...cartItems, [id]: cartItems[id] + 1 });
 
     if (token) {
-      fetch(import.meta.env.VITE_BASE_URL + "addtocart", {
+      fetch(import.meta.env.VITE_API_URL + "addtocart", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -95,7 +95,7 @@ const ShopContextProvider = ({ children }) => {
       setCartItems({ ...cartItems, [id]: cartItems[id] - 1 });
 
       if (token) {
-        fetch(import.meta.env.VITE_BASE_URL + "removefromcart", {
+        fetch(import.meta.env.VITE_API_URL + "removefromcart", {
           method: "POST",
           headers: {
             Accept: "application/json",

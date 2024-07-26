@@ -1,11 +1,13 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { ShopContext } from "../Context/ShopContext";
+import { useNavigate  } from "react-router-dom";
 
 const Login = () => {
   const { NavbarSelect } = useContext(ShopContext);
 
   const [state, setState] = useState("Login");
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     username: "",
@@ -28,7 +30,7 @@ const Login = () => {
       email: "",
     });
 
-    await fetch(import.meta.env.VITE_BASE_URL + "login", {
+    await fetch(import.meta.env.VITE_API_URL + "login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -42,7 +44,7 @@ const Login = () => {
         if (data.success) {
           localStorage.setItem("token", data.token);
           NavbarSelect("select1");
-          location.replace("/");
+          navigate("/");
         } else {
           alert(data.errors);
         }
@@ -51,7 +53,7 @@ const Login = () => {
   const signUp = async () => {
     console.log("signUp", formData);
 
-    await fetch(import.meta.env.VITE_BASE_URL + "signup", {
+    await fetch(import.meta.env.VITE_API_URL + "signup", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -64,7 +66,7 @@ const Login = () => {
         console.log(data);
         if (data.success) {
           alert("Sign up successful");
-          location.replace("/");
+          navigate("/");
         } else {
           alert(data.errors);
         }
