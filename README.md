@@ -3,7 +3,7 @@
 
 # Shopping
 
-This is the frontend client for the Shopping web application, built with Vite and React. It provides an intuitive user interface for browsing the menu, placing orders, and managing user accounts. Demo : http://45.154.26.220/shopping/
+This is the frontend client for the Shopping web application, built with Vite and React. It provides an intuitive user interface for browsing the menu, placing orders, and managing user accounts. Demo : https://aoffydev.online/shopping/
 
 ## 🛠️ Features
 

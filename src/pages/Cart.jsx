@@ -31,14 +31,26 @@ const Cart = () => {
               return (
                 <tr key={product.id}>
                   <td className="p-1 py-2 border text-center">
-                    <img src={product.image} alt={product.name} className="w-[60px] my-0 mx-auto rounded-md" />
+                    <img
+                      src={import.meta.env.VITE_API_URL + product.image}
+                      alt={product.name}
+                      className="w-[60px] my-0 mx-auto rounded-md"
+                    />
                   </td>
-                  <td className="p-1 py-2 border text-center">{product.name}</td>
-                  <td className="p-1 py-2 border text-center">${product.new_price.toFixed(2)}</td>
-                  <td className="p-1 py-2 border text-center">{quantity}</td>
-                  <td className="p-1 py-2 px-6 border text-center">${(product.new_price * quantity).toFixed(2)}</td>
                   <td className="p-1 py-2 border text-center">
-                    <button onClick={() => removeFromCart(product.id)}><RiDeleteBin6Line /></button>
+                    {product.name}
+                  </td>
+                  <td className="p-1 py-2 border text-center">
+                    ${product.new_price.toFixed(2)}
+                  </td>
+                  <td className="p-1 py-2 border text-center">{quantity}</td>
+                  <td className="p-1 py-2 px-6 border text-center">
+                    ${(product.new_price * quantity).toFixed(2)}
+                  </td>
+                  <td className="p-1 py-2 border text-center">
+                    <button onClick={() => removeFromCart(product.id)}>
+                      <RiDeleteBin6Line />
+                    </button>
                   </td>
                 </tr>
               );

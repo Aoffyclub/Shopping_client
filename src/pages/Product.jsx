@@ -29,7 +29,11 @@ const Product = () => {
     <div className="flex flex-col gap-6 pl-6" id="productTop">
       <span className="font-base text-lg  mt-10">{product.name}</span>
       <div className="flex gap-4 justify-around">
-        <img src={product.image} alt="" className="w-[35%]" />
+        <img
+          src={import.meta.env.VITE_API_URL + product.image}
+          alt=""
+          className="w-[35%]"
+        />
         <div className="flex flex-col gap-4">
           <span className="font-semibold text-3xl">{product.name}</span>
           <div className="flex flex-row gap-1 items-center">
